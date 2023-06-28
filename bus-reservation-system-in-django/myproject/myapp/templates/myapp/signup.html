@@ -1,0 +1,205 @@
+{% extends 'myapp/base.html' %} {% load static %} {% block title %}SignUp -
+FmBus Ticket Booking{% endblock %} {% block content %}
+<main>
+  <style>
+    /* CSS styles */
+
+    /* Styling for the body */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Styling for the container */
+
+    /* Styling for the heading */
+    h1 {
+      text-align: center;
+    }
+
+    /* Styling for form groups */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    /* Styling for labels */
+    label {
+      color: silver;
+      width: 40%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Styling for input fields */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 40%;
+      margin: 0 auto;
+      display: block;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: none;
+      padding: 5px;
+    }
+
+    /* Styling for the sign up button */
+    .btn {
+      display: block;
+      width: 30%;
+      padding: 10px;
+      background-color: #767879;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      align-content: center;
+      margin: 0 auto;
+    }
+
+    /* Styling for the sign up button on hover */
+    .btn:hover {
+      background-color: #0069d9;
+    }
+
+    /* Styling for error messages */
+    .error-message {
+      color: red;
+    }
+
+    /* Styling for paragraphs */
+    p {
+      margin: 0;
+    }
+
+    footer {
+      color: white;
+      margin-top: 100px;
+    }
+    /* Styling for the body background image */
+    body {
+      background-image: url("{% static 'myapp/signup.png' %}");
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Additional styling for the signup form */
+    .transparent-form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      margin-top: 70px;
+    }
+  </style>
+
+  <div class="container">
+    <div class="col-sm-6 mx-auto transparent-form">
+      <h1>Sign Up</h1>
+      <form
+        action="{% url 'myapp:signup' %}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <!-- profile Picture
+        <div class="form-group">
+         <label for="profile_picture">Profile Picture:</label>
+          <input
+            type="file"
+            id="profile_picture"
+            name="profile_picture"
+            class="form-control-file"
+          />
+        </div>-->
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+            class="form-control"
+          />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn">Sign Up</button>
+        </div>
+      </form>
+      <div class="form-group text-center">
+        <p>
+          Already have an account?
+          <a href="{% url 'myapp:signin' %}">Sign in</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* JavaScript validation function */
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm-password").value;
+      var errorMessage = document.getElementById("error-message");
+
+      if (name.trim() === "") {
+        errorMessage.innerText = "Please enter your name.";
+        return false;
+      }
+
+      if (email.trim() === "") {
+        errorMessage.innerText = "Please enter your email.";
+        return false;
+      }
+
+      if (password.trim() === "") {
+        errorMessage.innerText = "Please enter a password.";
+        return false;
+      }
+
+      if (confirmPassword.trim() === "") {
+        errorMessage.innerText = "Please confirm your password.";
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        errorMessage.innerText = "Passwords do not match.";
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</main>
+{% endblock %}

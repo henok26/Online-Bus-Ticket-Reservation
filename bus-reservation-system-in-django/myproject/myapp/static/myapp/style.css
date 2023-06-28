@@ -1,0 +1,85 @@
+/* style.css */
+
+/* Navbar styles */
+nav {
+    background-color: #8284a7;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  nav ul li {
+    float: right;
+  }
+  
+  nav ul li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    background-color: #9e9999;
+  }
+  
+  nav ul li:first-child {
+    float: left;
+  }
+  /*logo*/
+  .logo {
+    height: 120px; /* Adjust the height as needed */
+    margin-right: 30px; /* Add some spacing between the logo and the text */
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  .navbar-brand {
+    margin-right: 40px; /* Adjust the margin as needed */
+  }
+  
+  .navbar-brand-text {
+    display: inline-block;
+    margin-left: 5px; /* Adjust the margin as needed */
+  }
+  
+
+  /*card title*/
+  .card-title {
+    color:blue;}
+    .centered-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .zoom-card {
+      transition: transform 0.3s; /* Add smooth transition effect */
+    }
+    
+    .zoom-effect:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s;
+    }
+    
+    tr.selected {
+      background-color: #f2f2f2;
+    }
+    .navbar-text {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      color: #fff;
+      font-weight: bold;
+    }
+ 
+  
+ 

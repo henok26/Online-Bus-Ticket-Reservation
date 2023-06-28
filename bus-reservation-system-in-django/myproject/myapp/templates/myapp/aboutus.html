@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html' %} {% load static %} {% block content %}
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+</style>
+
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div class="card border-0 shadow">
+        <img
+          src="{% static 'myapp/Buslogo.png' %}"
+          class="card-img-top"
+          alt="About Us"
+        />
+        <div class="card-body">
+          <h2 class="card-title">About Us</h2>
+          <p class="card-text">
+            At FM Bus, we are committed to providing safe, reliable and
+            comfortable transportation for all our passengers. Since our
+            founding in 2020, we have worked tirelessly to exceed our customers'
+            expectations and build a reputation as one of the most trusted bus
+            companies in the industry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

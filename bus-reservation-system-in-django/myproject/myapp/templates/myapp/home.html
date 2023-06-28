@@ -1,0 +1,102 @@
+{% extends 'myapp/base.html' %} {% load static %} {% block title %}Home - FmBus
+Ticket Mapping{% endblock %} {% block content %}
+<main>
+  <!-- Main contents -->
+  <div style="background: #f8f9fa; padding-top: 20px">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h2
+            class="text-center mb-4 motion-text"
+            style="color: blue; font-size: 28px; font-family: Arial, sans-serif"
+          >
+            Welcome to FmBus Ticket Mapping
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card border-0 zoom-effect">
+          <img
+            src="{% static 'myapp/ourbus.png' %}"
+            class="card-img-top"
+            alt="Card Image 1"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">Our Bus</h5>
+            <p class="card-text text-center">
+              Experience a comfortable and convenient journey with our luxury
+              bus
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 zoom-effect">
+          <img
+            src="{% static 'myapp/Payment options.png' %}"
+            class="card-img-top"
+            alt="Complimentary service"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">You Can Pay Through..</h5>
+            <p class="card-text text-center">
+              We offer convenient payment options via CBE and Telebir pay. Send
+              us a receipt.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-0 zoom-effect">
+          <img
+            src="{% static 'myapp/card3.jpg' %}"
+            class="card-img-top"
+            alt="Card Image 3"
+          />
+          <div class="card-body">
+            <h5 class="card-title text-center">Complimentary Services</h5>
+            <p class="card-text text-center">
+              We provide complimentary Free Wifi, bottled water, and biscuits to
+              all our passengers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
+
+  .motion-text {
+    animation-name: move-text;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-align: center;
+  }
+
+  @keyframes move-text {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .zoom-effect:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+</style>
+
+{% endblock %}

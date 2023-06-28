@@ -1,0 +1,118 @@
+{% extends 'myapp/base.html' %} {% load static %} {% block content %}
+<style>
+  body {
+    background-image: url("{% static 'myapp/FindBus.jpg' %}");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .transparent-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 50px;
+    margin-top: 100px;
+    animation: fadeInUp 1s ease-in;
+    height: 400px;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  footer {
+    color: silver;
+    margin-top: 500px;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto transparent-form">
+      <h2 class="animate__animated animate__fadeIn" style="margin-bottom: 10px">
+        Find bus
+      </h2>
+      <form
+        action="{% url 'myapp:findbus' %}"
+        method="post"
+        class="animate__animated animate__fadeIn"
+      >
+        {% csrf_token %}
+        <div class="form-group row animate__animated animate__fadeIn">
+          <label for="source" class="col-4 col-form-label">From</label>
+          <div class="col-8">
+            <select
+              name="source"
+              id="source"
+              class="form-control"
+              style="margin-bottom: 10px"
+            >
+              <option value="DebreMarkos">Debre Markos</option>
+              <option value="BahirDar">Bahir Dar</option>
+              <option value="Gondar">Gondar</option>
+              <option value="DebreTabor">Debre Tabor</option>
+              <option value="DebreBerhan">Debre Berhan</option>
+              <option value="DebreWerq">Debre Werq</option>
+              <option value="Dejen">Dejen</option>
+              <option value="Dessie">Dessie</option>
+              <option value="Kombolcha">Kombolcha</option>
+              <option value="AddisAbaba">Addis Ababa</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+        </div>
+        <div class="form-group row animate__animated animate__fadeIn">
+          <label for="destination" class="col-4 col-form-label"
+            >Destination</label
+          >
+          <div class="col-8">
+            <select
+              name="destination"
+              id="destination"
+              class="form-control"
+              style="margin-bottom: 10px"
+            >
+              <option value="DebreMarkos">Debre Markos</option>
+              <option value="BahirDar">Bahir Dar</option>
+              <option value="Gondar">Gondar</option>
+              <option value="DebreTabor">Debre Tabor</option>
+              <option value="DebreBerhan">Debre Berhan</option>
+              <option value="DebreWerq">Debre Werq</option>
+              <option value="Dejen">Dejen</option>
+              <option value="Dessie">Dessie</option>
+              <option value="Kombolcha">Kombolcha</option>
+              <option value="AddisAbaba">Addis Ababa</option>
+              <!-- Add more options as needed -->
+            </select>
+          </div>
+        </div>
+        <div class="form-group row animate__animated animate__fadeIn">
+          <label for="date" class="col-4 col-form-label">Date</label>
+          <div class="col-8">
+            <input name="date" class="form-control" type="date" />
+          </div>
+        </div>
+        <div class="pull-right animate__animated animate__fadeIn">
+          <button
+            type="submit"
+            class="btn btn-success float-right"
+            style="margin-top: 10px"
+          >
+            Find bus
+          </button>
+        </div>
+        {{ error }}
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

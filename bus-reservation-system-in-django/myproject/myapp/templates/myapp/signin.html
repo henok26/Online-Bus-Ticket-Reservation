@@ -1,0 +1,75 @@
+{% extends 'myapp/base.html' %} {% load static %} {% block content %}
+
+<style>
+  body {
+    background-image: url("{% static 'myapp/login.png' %}");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .transparent-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin-top: 70px;
+    animation: fadeIn 1s ease-in;
+  }
+
+  footer {
+    color: white;
+    margin-top: 100px;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto transparent-form">
+      <h2 class="animate__animated animate__fadeIn">Login</h2>
+      <form
+        action="{% url 'myapp:signin' %}"
+        method="POST"
+        class="animate__animated animate__fadeIn"
+      >
+        {% csrf_token %}
+        <div class="form-group row">
+          <label for="example-email-input" class="col-2 col-form-label"
+            >Username:</label
+          >
+          <div class="col-10">
+            <input
+              name="name"
+              class="form-control"
+              type="text"
+              id="example-email-input"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-email-input" class="col-2 col-form-label"
+            >Password:</label
+          >
+          <div class="col-10">
+            <input name="password" class="form-control" type="password" />
+          </div>
+        </div>
+        <div class="pull-right">
+          <button type="submit" class="btn btn-primary float-right">
+            Sign In
+          </button>
+        </div>
+        {{ error }}
+      </form>
+      <p class="animate__animated animate__fadeIn">
+        Don't have an account? <a href="{% url 'myapp:signup' %}">Sign up</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
